@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Errands | UNZA</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <strong>Campus Errands</strong>
+    <button id="logout-btn" hidden>Log out</button>
+  </header>
+
+  <main class="container">
+    <section id="auth-section">
+      <h1 id="form-title">Welcome to Campus Errands</h1>
+      <p>Helping UNZA students get things done.</p>
+
+      <form id="auth-form" class="panel">
+        <label for="name">Full name</label>
+        <input id="name" type="text" placeholder="Your name" required>
+
+        <label for="email">Email address</label>
+        <input id="email" type="email" placeholder="Your email" required>
+
+        <label for="password">Password</label>
+        <input id="password" type="password"
+               minlength="8" placeholder="At least 8 characters" required>
+
+        <button id="submit-btn" type="submit">Log in</button>
+        <p id="auth-message" role="status"></p>
+
+        <p id="switch-text">
+          New here?
+          <button type="button" id="toggle-mode">Create account</button>
+        </p>
+      </form>
+    </section>
+
+    <section id="dashboard-section" hidden>
+      <h1 id="welcome-heading">Your dashboard</h1>
+      <p id="account-status" role="status"></p>
+
+      <div id="dashboard-content" hidden>
+        <section class="panel">
+          <h2>Post an errand</h2>
+          <form id="job-form">
+            <label for="job-title">What do you need?</label>
+            <input id="job-title" required minlength="3"
+                   maxlength="100" placeholder="e.g. Buy lunch">
+
+            <label for="job-description">Instructions</label>
+            <textarea id="job-description" required minlength="3"
+                      maxlength="1000"
+                      placeholder="Describe the errand"></textarea>
+
+            <label for="category">Category</label>
+            <select id="category" required>
+              <option value="food">Food</option>
+              <option value="groceries">Groceries</option>
+              <option value="documents">Documents</option>
+              <option value="parcel">Parcel</option>
+              <option value="other">Other</option>
+            </select>
+
+            <label for="pickup">Pickup location</label>
+            <input id="pickup" required placeholder="e.g. UNZA main campus">
+
+            <label for="dropoff">Drop-off location</label>
+            <input id="dropoff" required placeholder="Where should it go?">
+
+            <label for="delivery-fee">Delivery fee (ZMW)</label>
+            <input id="delivery-fee" type="number" min="0.01"
+                   max="1000" step="0.01" required>
+
+            <label for="item-cost">Estimated item cost (ZMW)</label>
+            <input id="item-cost" type="number" min="0"
+                   max="10000" step="0.01" value="0" required>
+
+            <button type="submit" id="post-job-btn">Post errand</button>
+          </form>
+          <p id="job-message" role="status"></p>
+        </section>
+
+        <section class="panel">
+          <h2>Available errands</h2>
+          <button type="button" id="refresh-jobs">Refresh errands</button>
+          <div id="jobs-list"></div>
+        </section>
+
+        <section class="panel">
+          <h2>My activity</h2>
+          <div id="my-jobs-list"></div>
+
+        </section>
+
+        
+<section class="panel" id="earnings-section">
+  <h2>My Earnings</h2>
+
+  <div class="earnings-summary">
+    <div class="earning-card">
+      <p>Completed Errands</p>
+      <h3 id="completed-count">0</h3>
+    </div>
+
+    <div class="earning-card">
+      <p>Runner Earnings</p>
+      <h3 id="runner-earnings">K0.00</h3>
+    </div>
+  </div>
+
+  <div id="earnings-list">
+    <p>Your earnings will appear here.</p>
+  </div>
+</section>
+
+
+<section class="panel" id="admin-section" hidden>
+  <h2>Campus Errands Admin Dashboard</h2>
+  <p>Platform performance and commission tracking.</p>
+
+  <div class="earnings-summary">
+    <div class="earning-card">
+      <p>Completed Errands</p>
+      <h3 id="admin-completed-count">0</h3>
+    </div>
+
+    <div class="earning-card">
+      <p>Total Commission</p>
+      <h3 id="admin-total-commission">K0.00</h3>
+    </div>
+
+    <div class="earning-card">
+      <p>Commission Pending</p>
+      <h3 id="admin-pending-commission">K0.00</h3>
+    </div>
+
+    <div class="earning-card">
+      <p>Commission Paid</p>
+      <h3 id="admin-paid-commission">K0.00</h3>
+    </div>
+  </div>
+
+  <button type="button" id="refresh-admin">
+    Refresh admin figures
+  </button>
+
+  <div id="admin-message"></div>
+</section>
+
+
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

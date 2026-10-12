@@ -1,0 +1,150 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f3f6f4;
+  color: #17251d;
+  font-family: Arial, sans-serif;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 6%;
+  background: #176b43;
+  color: white;
+}
+
+.topbar strong {
+  font-size: 20px;
+}
+
+.container {
+  width: min(900px, 92%);
+  margin: 30px auto;
+}
+
+h1, h2 {
+  color: #176b43;
+}
+
+.panel {
+  background: white;
+  border-radius: 12px;
+  padding: 22px;
+  margin: 20px 0;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin: 14px 0 6px;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5ce;
+  border-radius: 7px;
+  font: inherit;
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+button {
+  border: 0;
+  border-radius: 7px;
+  padding: 11px 16px;
+  margin-top: 12px;
+  background: #176b43;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+#auth-form {
+  max-width: 460px;
+}
+
+#submit-btn, #post-job-btn {
+  width: 100%;
+}
+
+#toggle-mode {
+  background: transparent;
+  color: #176b43;
+  padding: 4px;
+}
+
+#auth-message, #job-message, #account-status {
+  overflow-wrap: anywhere;
+}
+
+.job-card {
+  border: 1px solid #dce5de;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 14px;
+}
+
+.job-card h3 {
+  margin-top: 0;
+}
+
+.muted {
+  color: #65736a;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin: 20px auto;
+  }
+
+  .panel {
+    padding: 16px;
+  }
+}
+
+
+/* My Earnings section */
+.earnings-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.earning-card {
+  padding: 18px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.earning-card p {
+  margin: 0 0 10px;
+  color: #555;
+}
+
+.earning-card h3 {
+  margin: 0;
+  font-size: 1.4rem;
+}
